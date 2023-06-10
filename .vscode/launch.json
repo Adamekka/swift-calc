@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "name": "Debug swift-calc",
+            "program": "${workspaceFolder:swift-calc}/.build/debug/swift-calc",
+            "args": [],
+            "cwd": "${workspaceFolder:swift-calc}",
+            "preLaunchTask": "swift: Build Debug swift-calc"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "name": "Release swift-calc",
+            "program": "${workspaceFolder:swift-calc}/.build/release/swift-calc",
+            "args": [],
+            "cwd": "${workspaceFolder:swift-calc}",
+            "preLaunchTask": "swift: Build Release swift-calc"
+        }
+    ]
+}
