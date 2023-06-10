@@ -315,7 +315,31 @@ struct CalculatorView: View {
                 Spacer()
                 Button(".") {}.padding().border()
                 Spacer()
-                Button("=") {}.padding().background(.red).border(.red)
+                Button("=") {
+                    switch status {
+                    case .error(_), .none:
+                        break
+                    case .operation(let operation):
+                        switch operation {
+                        case .add:
+                            result = firstNumber + result
+                            break
+                        case .subtract:
+                            result = firstNumber - result
+                            break
+                        case .multiply:
+                            result = firstNumber * result
+                            break
+                        case .divide:
+                            if result == 0 {
+                                status = .error(.divisionByZero)
+                            } else {
+                                result = firstNumber / result
+                            }
+                            break
+                        }
+                    }
+                }.padding().background(.red).border(.red)
             }
         }.border()
     }
