@@ -1,1 +1,3 @@
-print("Hello, world!")
+import SwiftTUI
+
+Application(rootView: CalculatorView()).start()
